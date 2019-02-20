@@ -9,7 +9,45 @@
 //F("(<{}>)") => true
 //F("(<{)") => false
 
-$input = '[]{}()';
-$arr = str_split($input);
+$input = '{()}';
 
-print_r($arr);
+if (strlen($input) % 2 !== 0) echo 'NOPE';
+
+$testLength = strlen($input) / 2;
+$testSequence = str_split($input);
+
+
+$matchList = [
+    "[" => "]",
+    "<" => ">",
+    "{" => "}",
+    "(" => ")"
+];
+
+$length = count($testSequence);
+$testSequenceEnd = $testLength - 1;
+
+
+for ($i = 0; $i < $length; $i++) {
+
+    $isMatch = 1;
+    $match = $testSequence[$testSequenceEnd];
+
+    foreach ($matchList as $key => $value) {
+
+        if ($testSequence[$i] === $key && $match === $value) {
+
+            $isMatch = 2;
+
+        }
+
+    }
+
+    $testSequenceEnd--;
+
+}
+
+echo $isMatch;
+
+
+//print_r($arr);
