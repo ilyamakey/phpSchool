@@ -9,13 +9,34 @@
 //F("(<{}>)") => true
 //F("(<{)") => false
 
-$input = '{()}';
+$input = '1234';
 
 if (strlen($input) % 2 !== 0) echo 'NOPE';
 
-$testLength = strlen($input) / 2;
-$testSequence = str_split($input);
 
+$inputArray = str_split($input);
+$inputArrayLength = count($inputArray);
+$arrayEdge = count($inputArray) / 2;
+$testSequence1 = [];
+$testSequence2 = [];
+
+for ($i = 0; $i < $arrayEdge; $i++) {
+
+    $testSequence1[] = $inputArray[$i];
+
+}
+
+for ($i = $inputArrayLength - 1; $i >= $arrayEdge; $i--) {
+
+    $testSequence2[] = $inputArray[$i];
+
+}
+
+foreach ($matchList as $item =>$match) {
+
+    if ($item )
+
+}
 
 $matchList = [
     "[" => "]",
@@ -24,30 +45,10 @@ $matchList = [
     "(" => ")"
 ];
 
-$length = count($testSequence);
-$testSequenceEnd = $testLength - 1;
 
 
-for ($i = 0; $i < $length; $i++) {
 
-    $isMatch = 1;
-    $match = $testSequence[$testSequenceEnd];
-
-    foreach ($matchList as $key => $value) {
-
-        if ($testSequence[$i] === $key && $match === $value) {
-
-            $isMatch = 2;
-
-        }
-
-    }
-
-    $testSequenceEnd--;
-
-}
-
-echo $isMatch;
+//echo $isMatch;
 
 
 //print_r($arr);
